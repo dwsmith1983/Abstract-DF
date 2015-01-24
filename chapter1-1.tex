@@ -1,0 +1,888 @@
+\chapter{Introduction to Groups}
+
+\section{Basic Axioms and Examples}
+Let \(G\) be a group.
+\begin{enumerate}
+\item
+  Determine which of the following binary operations are associative:
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    the operation \(\star\) on \(\mathbb{Z}\) defined by
+    \(a\star b = a - b\)
+    \par\smallskip
+    To be associative, \(a\star (b\star c) = (a\star b)\star c\).
+    Let \(a, b, c\in G\).
+    Then
+    \begin{align*}
+      a\star (b\star c) & = a - (b - c)\\
+                              & = a - b + c\\
+                              & = (a\star b) + c\\
+                              & \neq (a - b) - c\\
+                              & = (a\star b)\star c
+    \end{align*}
+    Let \(a = 1\), \(b = 2\), and \(c = 3\).
+    Then \(a\star (b\star c) = 2\) and \((a\star b)\star c = -4\).
+    The binary operation is not associative.
+  \item
+    the operation \(\star\) on \(\mathbb{R}\) defined by
+    \(a\star b = a + b + ab\)
+    \par\smallskip
+    Let \(a, b, c\in G\).
+    Then
+    \begin{align*}
+      (a\star b)\star c & = a + b + ab + c + (a + b + ab)c\\
+                        & = a + b + ab + c + ac + bc + abc\\
+                        & = a + b + c + bc + ab + ac + abc\\
+                        & = a + b + c + bc + a(b + c + bc)\\
+                        & = a\star (b\star c)
+    \end{align*}
+    Therefore, the binary operation is associative.
+  \item
+    the operation \(\star\) on \(\mathbb{Q}\) defined by
+    \(a\star b = \frac{a + b}{5}\)
+    \par\smallskip
+    Let \(a, b, c\in G\).
+    Then
+    \begin{align*}
+      (a\star b)\star c & = \frac{\frac{a + b}{5} + c}{5}\\
+                        & = \frac{a + b + 5c}{25}\\
+                        & = \frac{b + 5c + a}{25}\\
+                        & = \frac{\frac{b + 5c}{5} + \frac{a}{5}}{5}\\
+                        & \neq a\star (b\star c)
+    \end{align*}
+    Let \(a = 1\), \(b = 2\), and \(c = 3\).
+    Then \((a\star b)\star c = \frac{18}{25}\) and
+    \(a\star (b\star c) = \frac{2}{5}\).
+    The binary operation is not associative.
+  \item
+    the operation \(\star\) on \(\mathbb{Z}\times\mathbb{Z}\) defined by
+    \((a, b)\star (c, d) = (ad + bc, bd)\).
+    \par\smallskip
+    Let \(a, b, c, d, e, f \in G\).
+    Then
+    \begin{align*}
+      ((a, b)\star (c, d))\star (e, f) & = (ad + bc, bd)\star (e, f)\\
+                                       & = ((ad + bc)f + bde, bdf)\\
+                                       & = (adf + bcf + bde, bdf)\\
+                                       & = (bcf + bde + adf, bdf)\\
+                                       & = (adf + b(cf + de), bdf)\\
+                                       & = (a, b)\star ((c, d)\star (e, f))
+    \end{align*}
+    The binary operation is associative.
+  \item
+    the operation \(\star\) on \(\mathbb{Q}\setminus\{0\}\) defined by
+    \(a\star b = \frac{a}{b}\)
+    \par\smallskip
+    Let \(a, b, c\in G\).
+    Then
+    \begin{align*}
+      (a\star b)\star c & = \frac{\frac{a}{b}}{c}\\
+                        & = \frac{a}{bc}\\
+                        & = \frac{\frac{a}{c}}{b}\\
+                        & \neq a\star (b\star c)
+    \end{align*}
+    Let \(a = 1\), \(b = 2\), and \(c = 2\).
+    Then \((a\star b)\star c = \frac{1}{6}\) and
+    \(a\star (b\star c) = \frac{3}{2}\).
+    The binary operation is not associative.
+  \end{enumerate}
+\item
+  Decide which of the binary operations in the preceding exercise are
+  commutative.
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    the operation \(\star\) on \(\mathbb{Z}\) defined by
+    \(a\star b = a - b\)
+    \par\smallskip
+    To be commutative, \(a\star b = b\star a\).
+    \begin{align*}
+      a\star b & = a - b\\
+               & = -(b - a)\\
+               & = -(b\star a)\\
+               & \neq b\star a
+    \end{align*}
+    Let \(a = 1\) and \(b = 2\).
+    Then \(a\star b = -1\) and \(b\star a = 1\).
+    The binary operation is not commutative.
+  \item
+    the operation \(\star\) on \(\mathbb{R}\) defined by
+    \(a\star b = a + b + ab\)
+    \begin{align*}
+      a\star b & = a + b + ab\\
+               & = b + a + ba\\
+               & = b\star a
+    \end{align*}
+    The binary operation is commutative.
+  \item
+    the operation \(\star\) on \(\mathbb{Q}\) defined by
+    \(a\star b = \frac{a + b}{5}\)
+    \begin{align*}
+      a\star b & = \frac{a + b}{5}\\
+               & = \frac{b + a}{5}\\
+               & = b\star a
+    \end{align*}
+    The binary operation is commutative.
+  \item
+    the operation \(\star\) on \(\mathbb{Z}\times\mathbb{Z}\) defined by
+    \((a, b)\star (c, d) = (ad + bc, bd)\).
+    \begin{align*}
+      (a, b)\star (c, d) & = (ad + bc, bd)\\
+                         & = (cb + da, db\\
+                         & = (c, d)\star (a, b)
+    \end{align*}
+    The binary operation is commutative.
+  \item
+    the operation \(\star\) on \(\mathbb{Q}\setminus\{0\}\) defined by
+    \(a\star b = \frac{a}{b}\)
+    \begin{align*}
+      a\star b & = \frac{a}{b}\\
+      b\star a & = \frac{b}{a}
+    \end{align*}
+    Let \(a = 1\) and \(b = 2\).
+    Then \(a\star b = \frac{1}{2}\) and \(b\star a = 2\).
+    The binary operation is not commutative.
+  \end{enumerate}
+\item
+  Prove that addition of residue classes in \(\mathbb{Z}/n\mathbb{Z}\) is
+  associative (you may assume it is well defined).
+  \par\smallskip
+  Let \(\bar{a}, \bar{b}, \ldots, \overline{n - 1}\) be the residue classes of
+  \(\mathbb{Z}/n\mathbb{Z}\).
+  \begin{align*}
+    (a\star b)\star c & = (\bar{a} + \bar{b}) + \bar{c}\\
+                      & = \overline{a + b} + \bar{c}\\
+                      & = \overline{a + b + c}\\
+                      & = \bar{a} + (\overline{b + c})\\
+                      & = \bar{a} + (\bar{b} + \bar{c})\\
+                      & = a\star (b\star c)
+  \end{align*}
+  The binary operation of addition on \(\mathbb{Z}/n\mathbb{Z}\) is
+  associative.
+\item
+  Prove that multiplication of residue classes in \(\mathbb{Z}/n\mathbb{Z}\) is
+  associative (you may assume it is well defined).
+  \par\smallskip
+  Let \(\bar{a}, \bar{b}, \ldots, \overline{n - 1}\) be the residue classes of
+  \(\mathbb{Z}/n\mathbb{Z}\).
+  \begin{align*}
+    (a\star b)\star c & = (\bar{a}\bar{b})\bar{c}\\
+                      & = \overline{abc}\\
+                      & = \bar{a}(\bar{b}\bar{c})\\
+                      & = a\star (b\star c)
+  \end{align*}
+\item
+  Prove for all \(n > 1\) that \(\mathbb{Z}/n\mathbb{Z}\) is not a group under
+  multiplication of residue classes.
+  \par\smallskip
+  For \(n \geq 2\), the set of residue classes is
+  \(S = \{x:x\text{ belongs to one of the reside classes, }\bar{0}, \bar{1}, \ldots, \overline{n - 1}\}\).
+  Then for any \(a, b\in S\).
+  Then \(\mathbb{Z}/n\mathbb{Z}\) is closed under multiplication since
+  \(a\cdot b\equiv z\pmod{n}\) where \(z\) is an integer of lowest order in mod
+  \(n\).
+  The identity element is one since \(a\cdot 1 \equiv a\pmod{n}\).
+  \(\mathbb{Z}/n\mathbb{Z}\) is associative by problem \(4\).
+  In order for \(\mathbb{Z}/n\mathbb{Z}\) to be a group, we need to establish
+  the existence of the inverse.
+  We have that \(0\cdot a\equiv 0\pmod{n}\) for all \(a\in S\).
+  That is, no element in the residue class of zero has an inverse.
+  Therefore, \(\mathbb{Z}/n\mathbb{Z}\) is not a group.
+\item
+  Determine which of the following sets are groups under addition:
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    the set of all rational numbers (including \(0 = 0/1\)) in lowest terms
+    whose denominators are odd
+    \par\smallskip
+    First, we need to determine if the set is closed under addition.
+    \[
+    \frac{a}{2b + 1} + \frac{c}{2d + 1} =
+    \frac{a(2d + 1) + c(2b + 1)}{(2b + 1)(2d + 1)}
+    \]
+    The numerator is integer so the only worry is the denominator which needs
+    to be odd.
+    Now, \((2b + 1)(2d + 1) = 4bd + 2b + 2d + 1 = 2(2bd + b + d) + 1\) which is
+    odd.
+    Therefore, the set is closed under addition.
+    Let \(e\) be the identity element.
+    Then
+    \[
+    \frac{a}{2b + 1} + e = \frac{a}{2b + 1}\Rightarrow e = 0
+    \]
+    which establishes the existence of the identity element.
+    Next, we need to show the existence of the inverse.
+    Let \(x\) be the inverse element.
+    Then
+    \[
+    \frac{a}{2b + 1} + x = e = 0\Rightarrow x = \frac{-a}{2b + 1}
+    \]
+    which establishes the existence of the inverse element.
+    Let \(b\), \(d\), and \(f\) be odd.
+    That is, \(b\), \(d\), and \(f\) are of the form \(2n + 1\).
+    \begin{align*}
+      (w\star y)\star z
+      & = \Bigl(\frac{a}{b} + \frac{c}{d}\Bigr) + \frac{e}{f}\\
+      &= \frac{ad + cb}{bd} + \frac{e}{f}\\
+      &= \frac{(ad + cb)f + ebd}{dbf}\\
+      &= \frac{adf + cbf + ebd}{bdf}\\
+      &= \frac{adf + (cf + ed)b}{bdf}\\
+      &= \frac{a}{b} + \Bigl(\frac{c}{d} + \frac{e}{f}\Bigr)\\
+      & = w\star (y\star z)
+    \end{align*}
+    Therefore, the set is associative, and we can say is a group under
+    addition.
+  \item
+    the set of rational numbers in lowest terms whose denominators are even
+    together with zero
+    \par\smallskip
+    This set is not closed under addition since
+    \(\frac{1}{6} + \frac{1}{6} = \frac{2}{3}\).
+    Therefore, the set is not a group under addition.
+  \item
+    the set of rational numbers of absolute value \(< 1\)
+    \par\smallskip
+    This set is not closed under addition since
+    \(\frac{1}{2} + \frac{3}{4} = \bigl\lvert\frac{5}{4}\bigr\rvert > 1\).
+    Therefore, the set is not a group under addition.
+  \item
+    the set of rational numbers of absolute value \(\geq 1\) together with
+    zero
+    \par\smallskip
+    This set is not closed under addition since
+    \(-1 + \frac{3}{2} = \bigl\lvert\frac{1}{2}\bigr\rvert < 1\).
+    Therefore, the set is not group under addition.
+  \item
+    the set of rational numbers with denominators equal to \(1\) or \(2\)
+    \par\smallskip
+    Let \(m = \frac{a}{1}\) and \(n = \frac{b}{2}\).
+    Then \(m + n = \frac{a}{1} + \frac{b}{2} = \frac{2a + b}{2}\) which has
+    a denominator of \(2\) if \(2a + b\) is odd.
+    If \(2a + b\) is even, then we can write it as \(2r\) so
+    \(m + n = \frac{r}{1}\) which has denominator one.
+    Therefore, the set is close under addition.
+    Let \(e\) be the identity and \(t\) belong to the set; that is, \(t\) has
+    denominator of one or two.
+    Then \(t + e = t\) so \(e = 0\).
+    Let \(x\) be the inverse.
+    Then \(t + x = e\) so \(x = -t\).
+    Let \(a\), \(b\), and \(c\) be rationals that belong to the set.
+    Since \(\mathbb{Q}\) is associative, this set is associative.
+    Therefore, this set is a group under addition.
+  \item
+    the set of rational numbers with denominators equal to \(1\), \(2\), or
+    \(3\)
+    \par\smallskip
+    This set is not closed under addition since
+    \(\frac{1}{2} + \frac{1}{3} = \frac{5}{6}\).
+    Therefore, this set is not a group under addition.
+  \end{enumerate}
+\item
+  Let \(G = \{x\in\mathbb{R}\mid 0\leq x < 1\}\) and for \(x, y\in G\) let
+  \(x\star y\) be the fractional part of \(x + y\) (that is,
+  \(x\star y = x + y - [x + y]\) where \([a]\) is the greatest integer less
+  than or equal to \(a\)).
+  Prove that \(\star\) is a well defined binary operation on \(G\) and that
+  \(G\) is an abelian group under \(\star\) (called the real numbers modulo
+  one).
+  \par\smallskip
+  We have two cases to consider for \([x + y]\).
+  Since \(x, y < 1\), we can have that
+  \[
+  [x + y] =
+  \begin{cases}
+    0, & x, y < 0.5\\
+    1, & \text{if either \(x\), \(y\), or both are } > 0.5 
+  \end{cases}
+  \]
+  For \([x + y] = 0\), we have that \(x, y < 0.5\) so \(0\leq x + y < 1\) and
+  \(x\star y\in G\).
+  For the second case, \(x + y < 2\) since \(x, y < 1\).
+  Then \(x\star y = x + y - [x + y] < 2 - 1 = 1\) so \(x\star y\in G\).
+  Hence, \(\star\) is well defined.
+  Let \(e\) be the identity element.
+  Then \(x\star e = x\).
+  Let \(x\in G\).
+  Then
+  \begin{align*}
+    x\star e & = x + e - [x + e]\\
+             & = x + e\tag{for \([x + e] = 0\)}\\
+    \intertext{Therefore, \(e = 0\).}
+             & = x + e - 1\tag{for \([x + e] = 1\)}
+  \end{align*}
+  In the second case, we would get \(e = 1\) which clearly doesn't exist in
+  \(G\) so \(e = 0\) is the identity element.
+  Let \(v\) be the inverse element in \(G\).
+  Then \(x\star v = e = 0\).
+  \begin{align*}
+    x\star v & = x + v - [x + v]\\
+             & = x + v\tag{for \([x + v] = 0\)}\\
+    \intertext{Therefore, \(v = -x\).}
+             & = x + v - 1\tag{for \([x + v] = 1\)}
+  \end{align*}
+  In the second case, we get that \(v = 1 - x\in G\) since \(x\in G\).
+  Recall that the identity element is unique.
+  That is, if \(v = -x\), when \(x = 0\), \(v = 0\) and the inverse would be
+  the identity element.
+  Therefore, \(v = 1 - x\).
+  Let \(x, y, z\in G\).
+  Then
+  \begin{align*}
+    x\star (y\star z) & = x + (y\star z) - [x + (y\star z)]\\
+                      & = x + y + z - [y + z] - [x + y + z - [y + z]]\\
+                      & = x + y + z - [y + z] - [x + y + z] + [y + z]\eqnumtag
+                        \label{ch1prob8}\\
+                      & = x + y + z - [x + y + z]\\
+                      & = x + y + z - [x + y] - [x + y + z] + [x + y]\\
+                      & = x + y + z - [x + y] - [x + y + z - [x + y]]\\
+                      &=  (x + y - [x + y]) + z - [(x + y - [x + y]) + z]\\
+                      & = (x\star y) + z - [(x\star y) + z]\\
+                      & = (x\star y)\star z
+  \end{align*}
+  \Cref{ch1prob8} occurs since if \(x\in\mathbb{R}\) and \(n\in\mathbb{Z}^+\),
+  then \([x + n] = [x] + n\).
+  Therefore, \(\star\) is associative.
+  \begin{align*}
+    x\star y & = x + y - [x + y]\\
+             & = y + x - [y + x]\\
+             & = y\star x
+  \end{align*}
+  Therefore, \(\star\) is commutative and \(G\) is an abelian group.
+\item
+  Let
+  \(G = \{z\in\mathbb{C}\mid z^n = 1\text{ for some } n\in\mathbb{Z}^+\}\).
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    Prove that \(G\) is a group under multiplication (called the group of
+    \textit{roots of unity} in \(\mathbb{C}\)).
+    \par\smallskip
+    Let \(z_1, z_2\in G\).
+    Then there exist \(n, m\in\mathbb{Z}^+\) such that \(z_1^n = 1\) and
+    \(z_2^m = 1\).
+    Now, take \((z_1z_2)^{mn} = z_1^nz_2^m = 1\cdot 1 = 1\); therefore, \(G\)
+    is closed under multiplication.
+    Since \(1^1 = 1\), we have that \(1\in G\).
+    With multiplication, \(1\cdot z^n = z^n\) for \(z^n\in G\).
+    Thus, \(1 = e\) is the identity element in \(G\).
+    Since \(\mathbb{C}\) is a field, multiplication is associative; hence,
+    \(G\) is associative which we can easily show as well.
+    \begin{align*}
+      z_1^n(z_2z_3)^{pq} & = z_1^nz_2^pz_3^q\\
+                         & = (z_1^nz_2^p)z_3^q\\
+                         & = (z_1z_2)^{np}z_3^q
+    \end{align*}
+    Let be \(x\) the inverse element.
+    Then 
+    \begin{align*}
+      z^nx & = e\\
+      x & = z^{-n}\\
+      z^nz^{-n} &= z^n\bigl(z^n\bigr)^{-1}\\
+           & = 1\cdot 1^{-1}\\
+           & = 1
+    \end{align*}
+    The inverse element \(x = z^{-n}\).
+    Therefore, \(G\) is a group under multiplication; moreover, \(G\) is an
+    abelian group since \(\mathbb{C}\) is a field and multiplication is
+    commutative in \(\mathbb{C}\) so it is commutative in \(G\).
+  \item
+    Prove that \(G\) is not a group under addition.
+    \par\smallskip
+    Let \(z_1, z_2\in G\) and \(n, m\in\mathbb{Z}^+\).
+    Then
+    \[
+    z_1^n + z_2^m = 1 + 1 = 2.
+    \]
+    Therefore, \(G\) is not close under addition so \(G\) cannot be a group.
+  \end{enumerate}
+\item
+  Let \(G = \{a + b\sqrt{2}\in\mathbb{R}\mid a, b\in\mathbb{Q}\}\).
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    Prove that \(G\) is a group under addition.
+    \par\smallskip
+    Let \(a + b\sqrt{2}, c + d\sqrt{2}\in G\).
+    Then \(a + b\sqrt{2} + c + d\sqrt{2} = a + c + (b + d)\sqrt{2}\in G\) since
+    \(\mathbb{Q}\) is closed under addition so \(a + c, b + d\in\mathbb{Q}\).
+    \(G\) is associative since \(\mathbb{R}\) is associate.
+    \(0\in G\) since \(0 = 0 + 0\sqrt{2}\).
+    Let \(x\in G\).
+    Then \(x + 0 = x\) so \(0\) is the identity element \(e\in G\).
+    For all \(a, b\in\mathbb{Q}\) and \(a + b\sqrt{2}\in G\), we have
+    \(-a - b\sqrt{2}\in G\) and \(a + b\sqrt{2} - a - b\sqrt{2} = 0\);
+    therefore, \(-a - b\sqrt{2}\) is the inverse element in \(G\).
+    Hence, \(G\) is a group under addition.
+  \item
+    Prove that the nonzero elements of \(G\) are a group under multiplication.
+    ("Rationalize the denominators" to find multiplicative inverses.)
+    \par\smallskip
+    Let \(a,b,c,d\in\mathbb{Q}\setminus\{0\}\).
+    Then \(a + b\sqrt{2}, c + d\sqrt{2}\in G\).
+    \[
+    (a + b\sqrt{2})(c + d\sqrt{2}) = ac + 2bd + (bc + ad)\sqrt{2}
+    \]
+    and since \(ac + 2bd, bc + ad\in\mathbb{Q}\),
+    \(ac + 2bd + (bc + ad)\sqrt{2}\in G\) so \(G\) is closed under
+    multiplication.
+    Since \(\mathbb{R}\) is associative, \(G\) is associative.
+    \(1\in G\) since \(1 = 1 + 0\sqrt{2}\).
+    For all \(a,b\in\mathbb{Q} - \{0\}\) and \(a + b\sqrt{2}\in G\),
+    \((a + b\sqrt{2})(1) = a + b\sqrt{2}\).
+    That is, \(1\) is the identity element \(e\in G\).
+    \begin{align*}
+      (a + b\sqrt{2})(x) & = e\\
+      x & = \frac{1}{a + b\sqrt{2}}\\
+                         & = \frac{a - b\sqrt{2}}{a^2 - 2b^2}\\
+                         & = \frac{a}{a^2 - 2b^2} - \frac{b}{a^2 - 2b^2}
+                           \sqrt{2}
+    \end{align*}
+    The inverse element is \(\frac{1}{a + b\sqrt{2}}\in G\) since
+    \(\frac{a}{a^2 - 2b^2}, \frac{-b}{a^2 - 2b^2}\in\mathbb{Q}\) and
+    \(a^2 - 2b^2 = 0\not\in\mathbb{Q}\) since
+    \(\sqrt{2}\in\mathbb{R}\setminus\mathbb{Q}\).
+  \end{enumerate}
+\item
+  Prove that a finite group is abelian if and only if its group table is a
+  symmetric matrix.
+  \par\smallskip
+  We have to prove two statements.
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    If a finite group is abelian, then its group table is a symmetric matrix.
+    \par\smallskip
+    Let \(G\) be a finite group with \(\lvert G\rvert = n\) and
+    \(g_i, g_j\in G\) for \(i\neq j\).
+    The group table is the \(n\times n\) matrix whose \(i,j\) entry is the
+    group element \(g_ig_j\).
+    \[
+    \begin{bmatrix}
+      g_1g_1 & g_1g_2 & \cdots & g_1g_n\\
+      g_2g_1 & g_2g_2 & \cdots & g_2g_n\\
+      \vdots & & \ddots & \vdots\\
+      g_ng_1 & g_ng_2 & \cdots & g_ng_n
+    \end{bmatrix}
+    \]
+    Since \(G\) is abelian, \(g_ig_j = g_jg_i\).
+    A symmetric matrix is \(\mathbf{A} = \mathbf{A}^{\intercal}\) or when
+    \(a_{ij} = a_{ji}\).
+    Since \(a_{ij} = g_ig_j = g_jg_i = a_{ji}\), the group table is symmetric.
+    Thus, if a finite group is abelian, then its group table is symmetric.
+  \item
+    If a group table is a symmetric matrix, then its finite group is abelian.
+    \par\smallskip
+    Let \(\mathbf{A}\) be the symmetric \(n\times n\) group table matrix.
+    Then \(a_{ij} = a_{ji}\).
+    Let \(g_i,g_j\in G\) where \(g_ig_j = a_{ij}\).
+    Since \(\mathbf{A}\) is symmetric, \(a_{ij} = g_ig_j = a_{ji} = g_jg_i\).
+    Therefore, \(g_ig_j = g_jg_i\) so \(G\) is abelian.
+    Additionally, since a symmetric matrix is finite and square,
+    \(\lvert G\rvert = n\).
+    If a group table is a symmetric matrix, then its finite group is abelian.
+  \end{enumerate}
+\item
+  Find the orders of each element of the additive group
+  \(\mathbb{Z}/12\mathbb{Z}\).
+  \par\smallskip
+  Let \(G\) be set congruence classes of \(\mathbb{Z}/12\mathbb{Z}\).
+  Then \(G = \{\bar{0},\bar{1},\ldots,\overline{11}\}\).
+  The order of \(\bar{0}\) is one since \(0\equiv 0\pmod{12}\).
+  The order of \(\bar{1}\) is twelve since
+  \(\underbrace{\bar{1} + \bar{1} + \cdots + \bar{1}}_{12\text{ times}}\equiv
+  0\pmod{12}\).
+  By similar means, we have that \(\lvert\bar{2}\rvert = 6\),
+  \(\lvert\bar{3}\rvert = 4\), \(\lvert\bar{4}\rvert = 3\),
+  \(\lvert\bar{5}\rvert = 12\), \(\lvert\bar{6}\rvert = 2\),
+  \(\lvert\bar{7}\rvert = 12\), \(\lvert\bar{8}\rvert = 3\),
+  \(\lvert\bar{9}\rvert = 4\), \(\lvert\overline{10}\rvert = 6\), and
+  \(\lvert\overline{11}\rvert = 12\).
+\item
+  Find the orders of each elements of the multiplicative group
+  \((\mathbb{Z}/12\mathbb{Z})^{\times}\colon\bar{1}, \overline{-1}, \bar{5},
+  \bar{7}, \overline{-7}, \bar{13}\).
+  \par\smallskip
+  The order of \(\lvert\bar{1}\rvert = 1\) and the order of
+  \(\lvert\overline{-1}\rvert = 2\).
+  The order of the others are \(\lvert\bar{5}\rvert = 2\),
+  \(\lvert\bar{7}\rvert = 2\), \(\lvert\overline{-7}\rvert = 2\),
+  and \(\lvert\overline{13}\rvert = 1\).
+\item
+  Find the orders of each element of the additive group
+  \((\mathbb{Z}/36\mathbb{Z})\colon\bar{1}, \bar{2}, \bar{6}, \bar{9},
+  \overline{10}, \overline{12}, \overline{-1}, \overline{-10},
+  \overline{-18}\).
+  \begin{alignat*}{4}
+    \lvert\bar{1}\rvert & = 36 & \qquad & \lvert\bar{2}\rvert &&{}= 18\\
+    \lvert\bar{6}\rvert & = 6 & \qquad & \lvert\bar{9}\rvert &&{}= 4\\
+    \lvert\overline{10}\rvert & = 18 & \qquad & \lvert\overline{12}\rvert
+    &&{}= 3\\
+    \lvert\overline{-1}\rvert & = 36 & \qquad & \lvert\overline{-10}\rvert
+    &&{}= 18\\
+    \lvert\overline{-18}\rvert & = 2
+  \end{alignat*}
+\item
+  Find the orders of the following elements of the mutliplicative group
+  \((\mathbb{Z}/36\mathbb{Z})^{\times}\colon\bar{1}, \overline{-1}, \bar{5},
+  \overline{13}, \overline{-13}, \overline{17}\).
+  \begin{alignat*}{4}
+    \lvert\bar{1}\rvert & = 1 & \qquad & \lvert\overline{-1}\rvert &&{}= 2\\
+    \lvert\bar{5}\rvert & = 6 & \qquad & \lvert\overline{13}\rvert &&{}= 6\\
+    \lvert\overline{17}\rvert & = 2
+  \end{alignat*}
+\item
+  Prove that
+  \((a_1a_2\cdots a_n)^{-1} = a_n^{-1}a_{n - 1}^{-1}\cdots a_1^{-1}\) for all
+  \(a_1,a_2,\ldots,a_n\in G\).
+  \par\smallskip
+  Since \(G\) is a group, \(a_ia_i^{-1} = a_i^{-1}a_i = e\) where \(e\) is the
+  identity element.
+  Let's multiple by \((a_1a_2\cdots a_n)\) on the left and right hand side.
+  Then
+  \begin{align*}
+    (a_1a_2\cdots a_n)(a_1a_2\cdots a_n)^{-1}
+    & = (a_1a_2\cdots a_n)a_n^{-1}a_{n - 1}^{-1}\cdots a_1^{-1}\\
+    e & = a_1a_2\cdots a_na_n^{-1}a_{n - 1}^{-1}\cdots a_1^{-1}\\
+    & = a_1a_2\cdots a_{n - 1}ea_{n - 1}^{-1}\cdots a_1^{-1}\\
+    &= e
+  \end{align*}
+\item
+  Let \(x\) be an element of \(G\).
+  Prove that \(x^2 = 1\) if and only if \(\lvert x\rvert\) is either one or
+  two.
+  \par\smallskip
+  First, let's consider if \(x^2 = 1\), then \(\lvert x\rvert\) is either one
+  or two.
+  Since \(x^2\) is the multiplicative identity element, the maximum order of
+  \(x\) is two.
+  However, if the order of \(x\) is one, then \(1^2 = 1\).
+  That is, the order of \(x\) can be either one or two.
+  Now, suppose that if \(\lvert x\rvert\) is either one or two, then
+  \(x^2 = 1\).
+  If the of order of \(x\) is two, then \(x^2 = 1\).
+  If the of order of \(x\) is one, then \(x^1 = 1\) so
+  \(x^2 = x^1x^1 = (1)(1) = 1\).
+  Thus, \(x^2 = 1\).
+\item
+  Let \(x\) be an element of \(G\).
+  Prove that if \(\lvert x\rvert = n\) for some positive integer \(n\) then
+  \(x^{-1} = x^{n - 1}\).
+  \par\smallskip
+  Since \(\lvert x\rvert = n\), \(x^n = e\) where \(e\) is the identity
+  element.
+  Let's multiple by \(x^{-1}\) on the right and left so we have
+  \[
+  x^{n}x^{-1} = ex^{-1}\Rightarrow x^{n - 1} = x^{-1}.
+  \]
+\item
+  Let \(x,y\in G\).
+  Prove that \(xy = yx\) if and only if \(y^{-1}xy = x\) if and only if
+  \(x^{-1}y^{-1}xy = 1\).
+  \par\smallskip
+  Since \(x,y\in G\), we have that \(x^{-1},y^{-1}\in G\) and
+  \(yy^{-1} = y^{-1}y = e\) where \(e\) is the identity element so
+  \begin{align*}
+    xy & = yx\\
+    y^{-1}xy & = y^{-1}yx\tag{mulitple by \(y^{-1}\) on the left}\\
+    y^{-1}xy & = ex\\
+    y^{-1}xy & = x\\
+    x^{-1}y^{-1}xy & = 1\tag{mulitple by \(x^{-1}\) on the left}
+  \end{align*}
+  To prove the other direction, we simply start from \(x^{-1}y^{-1}xy = 1\) and
+  work back up since \(x,y\in G\).
+\item
+  Let \(x\in G\) and let \(a,b\in\mathbb{Z}^+\).
+  \begin{enumerate}[label = (\alph*), ref = \theenumi (\alph*)]
+  \item
+    \label{19a}
+    Prove that \(x^{a + b} = x^ax^b\) and \((x^a)^b = x^{ab}\).
+    \par\smallskip
+    
+  \item
+    Prove that \((x^a)^{-1} = x^{-a}\).
+  \item
+    Establish \cref{19a} for arbitary integers \(a\) and \(b\) (positive,
+    negative or zero).
+  \end{enumerate}
+\item
+  For \(x\) an element in \(G\) show that \(x\) and \(x^{-1}\) have the same
+  order.
+  \par\smallskip
+  Let \(\lvert x\rvert = n\).
+  Then \(x^n = e\).
+  Since \(x^n\in G\), \(x^{-n}\in G\).
+  Then
+  \[
+  x^{-n}x^n = x^{-n}e\Rightarrow e = x^{-n} = (x^{-1})^n
+  \]
+  Therefore, \(\lvert x^{-1}\rvert = n\).
+\item
+  Let \(G\) be a finite group and let \(x\) be an element of \(G\) of order
+  \(n\).
+  Prove that if \(n\) is odd, then \(x = (x^2)^k\) for some integer
+  \(k\geq 1\).
+  \par\smallskip
+  Since \(n\) is odd, we can wrie \(n = 2k - 1\) where \(k\in\mathbb{Z}\).
+  Now, \(x^n = x^{2k - 1} = x^{2k}x^{-1} = e\) so \(x^{2k} = x\).
+\item
+  If \(x\) and \(g\) are elements of the group \(G\), prove that
+  \(\lvert x\rvert = \lvert g^{-1}xg\rvert\).
+  Deduce that \(\lvert ab\rvert = \lvert ba\rvert\) for all \(a,b\in G\).
+  \par\smallskip
+  Let \(\lvert x\rvert = n\).
+  Then
+  \begin{align*}
+    x^n & = (g^{-1}xg)^n\\
+        & = \underbrace{(g^{-1}xg)\cdots (g^{-1}xg)}_{n\text{ times}}\\
+        & = g^{-1}x^ng\\
+        & = g^{-1}eg\\
+        & = g^{-1}g\\
+        & = e
+  \end{align*}
+  Thus, \(\lvert g^{-1}xg\rvert = n = \lvert x\rvert\).
+  Now, suppose \(\lvert x\rvert = \infty\) and \(\lvert g^{-1}xg\rvert = n\).
+  Then
+  \[
+  g^{-1}x^ng = e\Rightarrow gg^{-1}x^ngg^{-1} = geg^{-1}\Rightarrow
+  x^n = e
+  \]
+  which is a contradiction.
+  That is, if \(\lvert x\rvert = \infty\), then so does
+  \(\lvert g^{-1}xg\rvert\).
+  From above, we have that \(\lvert ab\rvert = \lvert g^{-1}(ab)g\rvert\).
+  \begin{align*}
+    \lvert ab\rvert & = \lvert g^{-1}(ab)g\rvert\tag{Let \(g = b^{-1}a\)}\\
+                    & = \lvert ba^{-1}(ab)b^{-1}a\rvert\\
+                    & = \lvert ba\rvert
+  \end{align*}
+\item
+  Suppose \(x\in G\) and \(\lvert x\rvert = n < \infty\).
+  If \(n = st\) for some positive integers \(s\) and \(t\), prove that
+  \(\lvert x^s\rvert = t\).
+  \par\smallskip
+  Since the order of \(x\) is \(n\), we have
+  \begin{align*}
+    x^n & = x^{st}\\
+        & = (x^s)^t\\
+    \lvert x^s\rvert & = t\tag{since \(x^n = (x^s)^t = e\)}
+  \end{align*}
+\item
+  If \(a\) and \(b\) are \textit{commuting} elements of \(G\), prove that
+  \((ab)^n = a^nb^n\) for all \(n\in\mathbb{Z}\).
+  (Do this by induction for positive \(n\) first.)
+  \par\smallskip
+  Since \(a\) and \(b\) commute, \(ab = ba\).
+  Let \(n = 1\).
+  Then \((ab)^1 = ab\).
+  Suppose this is true for \(k\leq n\).
+  Then \((ab)^k = a^kb^k\).
+  \begin{align*}
+    (ab)^k(ab) & = a^kb^kab\\
+               & = a^k\underbrace{b\cdots b}_{k\text{ times}}ab\\
+               & = a^k\underbrace{b\cdots b}_{k - 1\text{ times}}abb\\
+               & = \vdots\\
+               & = a^kbab^{k - 1}b\\
+               & = a^kabb^k\\
+               & = a^{k + 1}b^{k + 1}
+  \end{align*}
+  By the prinicple of mathematical induction, \((ab)^n = a^nb^n\) for all
+  \(n\in\mathbb{Z}^+\).
+  For any \(n < 0\), we have
+  \begin{align*}
+    (ab)^n & = ((ab)^{-n})^{-1}\\
+           & = (a^{-n}b^{-n})^{-1}\\
+           & = a^nb^n
+  \end{align*}
+\item
+  Prove that if \(x^2 = 1\) for all \(x\in G\) then \(G\) is abelian.
+  \par\smallskip
+  Since \(x^2 = 1\), we have
+  \[
+  x^2 = xx = e\Rightarrow x = x^{-1}
+  \]
+  Therefore, for all \(x\in G\), \(x = x^{-1}\).
+  Let \(x,y\in G\).
+  Then
+  \begin{align*}
+    xy & = (xy)^{-1}\\
+       & = y^{-1}x^{-1}\\
+       & = yx\tag{since \(x = x^{-1}\)}
+  \end{align*}
+  Thus, \(G\) is abelian.
+\item
+  Assume \(H\) is a nonempty subset of \((G, \star)\) which is closed under the
+  binary operation on \(G\) and is closed under inverses, that is, for all
+  \(h,k\in H\), \(hk, h^{-1}\in H\).
+  Prove that \(H\) is a group under the operation \(\star\) restricted to
+  \(H\) (such a subset \(H\) is a called a \textit{subgroup} of \(G\)).
+  \par\smallskip
+  Since \(h,k\in H\), \(h\star k\in H\).
+  Therefore, \(H\) is closed under the operation of star.
+  Let \(e\) be the identity element.
+  Then \(e = hh^{-1} = h^{-1}h\in H\) where \(h^{-1}\) is the inverse.
+  Let \(h,k,m\in H\).
+  \begin{align*}
+    (h\star k)\star m & = (hk)\star m\\
+                      & = (hk)m\\
+                      & = hkm\\
+                      & = h(km)\\
+                      & = h\star (km)\\
+                      & = h\star (k\star m)
+  \end{align*}
+  Thus, \(H\) is associative under \(\star\), and a subgroup since for all
+  \(h\in H\), \(h^{-1}\) exist, \(H\) is closed under star, associative, and
+  \(e\in H\).
+\item
+  Prove that if \(x\in G\) then \(\{x^n\mid n\in\mathbb{Z}\}\) is a subgroup of
+  \(G\) (called the \textit{cyclic subgroup} of \(G\) generated by \(x\)).
+  \par\smallskip
+  Let \(H\) be the cyclic subgroup.
+  Since \(0\in\mathbb{Z}\), \(x^0 = 1\in H\) so \(H\) is not empty.
+  Let \(x^n,x^m\in H\).
+  Then \(x^nx^m = x^{n + m}\in H\) so \(H\) is closed.
+  Since \(G\) is a group and \(x\in G\), \(x^{-1}\in G\).
+  Then since \(x^n\in H\), we have \((x^n)^{-1} = x^{-n}\in H\) where
+  \(x^{-n}\) is the inverse element.
+  Now \(x^nx^{-n} = x^{-n}x^n = e\in H\) where \(e\) is the identity element.
+  \begin{align*}
+    (x^nx^m)x^t & = (x^{n + m})x^t\\
+                & = x^{n + m}x^t\\
+                & = x^{n + m + t}\\
+                & = x^n(x^{m + t})\\
+                & = x^n(x^mx^t)
+  \end{align*}
+  Therefore, \(H\) is non empty, closed, posses both an identity and inverse
+  elements, and is associative so \(H\) is a subgroup of \(G\).
+\item
+  Let \((A, \star)\) and \((B, \diamond)\) be groups and let \(A\times B\) be
+  their direct product (as defined in example \(6\)).
+  Verify all the group axioms for \(A\times B\).
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    prove that the associative law holds: for all \((a_i, b_i)\in A\times B\),
+    \(i = 1\), \(2\), \(3\)
+    \((a_1, b_1)\bigl[(a_2, b_2)(a_3, b_3)\bigr] =
+    \bigl[(a_1, b_1)(a_2, b_2)\bigr](a_3, b_3)\),
+    \begin{align*}
+      (a_1, b_1)\bigl[(a_2, b_2)(a_3, b_3)\bigr]
+      & = (a_1, b_1)(a_2a_3, b_2b_3)\\
+      & = (a_1a_2a_3, b_1b_2b_3)\\
+      & = ((a_1a_2)a_3, (b_1b_2)b_3)\\
+      & = \bigl[((a_1a_2), (b_1b_2))\bigr](a_3, b_3)\\
+      & = \bigl[(a_1, b_1)(a_2, b_2)\bigr](a_3, b_3)
+    \end{align*}
+  \item
+    prove that \((1, 1)\) is the identity of \(A\times B\), and
+    \par\smallskip
+    Let \(a,b\in A\times B\).
+    Then \((a, b)(1, 1) = (a\cdot 1, b\cdot 1) = (a, b)\) and
+    \((1, 1)(a, b) = (1\cdot a, 1\cdot b) = (a , b)\).
+    Thus, \((1, 1)\) is the identity element in \(A\times B\).
+  \item
+    prove that the inverse of \((a, b)\) is \((a^{-1}, b^{-1})\).
+    \par\smallskip
+    Let \(a,b\in A\times B\).
+    Then \((a, b)(a^{-1}, b^{-1}) = (aa^{-1}, bb^{-1}) = (1, 1)\) and
+    \((a^{-1}, b^{-1})(a, b) = (a^{-1}a, b^{-1}b) = (1 , 1)\).
+    Thus, \((a^{-1}, b^{-1})\) is the identity element in \(A\times B\).
+  \end{enumerate}
+\item
+  Prove that \(A\times B\) is an abelian group if and only if both \(A\) and
+  \(B\) are abelian.
+  \par\smallskip
+  Suppose that \(A\times B\) is abelian and let \(a,b\in A\) and
+  \(\alpha,\beta\in B\).
+  Since \(A\times B\) is abelian, for all
+  \((a, \alpha), (b, \beta)\in A\times B\), we have
+  \[
+  (a, \alpha)(b, \beta) = (ab, \alpha\beta) = (b, \beta)(a, \alpha) =
+  (ba, \beta\alpha)
+  \]
+  so \((ab, \alpha\beta) = (ba, \beta\alpha)\).
+  Since \(ab = ba\) and \(a,b\in A\), \(A\) is abelian since \(a\) and \(b\)
+  commute.
+  Similarly, \(B\) is abelian since \(\alpha\beta = \beta\alpha\).
+  Now suppose that \(A\) and \(B\) are abelian where \(a,b\in A\) and
+  \(\alpha,\beta\in B\).
+  Then \(ab = ba\) and \(\alpha\beta = \beta\alpha\).
+  \begin{align*}
+    (a, \alpha)(b, \beta) & = (ab, \alpha\beta)\\
+                          & = (ba, \beta\alpha)
+                            \tag{since \(A\) and \(B\) are abelian}\\
+                          & = (b, \beta)(a, \alpha)
+  \end{align*}
+  Thus, \(A\times B\) is abelian.
+\item
+  Prove that the elements \((a, 1)\) and \((1, b)\) of \(A\times B\) commute
+  and deduce that the order of \((a, b)\) is the least common multiple of
+  \(\lvert a\rvert\) and \(\lvert b\rvert\).
+  \begin{align*}
+    (a, 1)(1, b) & = (a\cdot 1, 1\cdot b)\\
+                 & = (a, b)\\
+                 & = (1\cdot a, b\cdot 1)\\
+                 & = (1, b)(a, 1)
+  \end{align*}
+  Hence, \((a, 1)\) and \((1, b)\) commute.
+  Let the order of \(\lvert (a, 1)\rvert = n\), \(\lvert (1, b)\rvert = m\),
+  and \(\lvert (a, 1)(1, b)\rvert = r\).
+  Let \(d = [a, b]\) where \([a, b]\) is the LCM.
+  Since \(d = [a, b]\), \(d\mid a\) and \(d\mid b\) or \(at = d\) and
+  \(bs = d\).
+  Then
+  \[
+  \bigl[(a, 1)(1, b)\bigr]^d = (a, 1)^d(1, b)^d = (1, 1)
+  \]
+  Suppose \(d\neq r\).
+  Then \(r < d\) such that \(d\mid r\Rightarrow rh = d\) and
+  \((a, 1)^r(1, b)^r = (1, 1)\).
+  Since \((a, 1)^r = (1, 1)\) and \((1, b)^r = (1, 1)\), \(r\mid a\) and
+  \(r\mid b\).
+  Thus, \(r\) is a multiple of \(a\) and \(b\), but \(r < d\) which contradicts
+  the fact that \(d\) is LCM.
+  Therefore, \(r = d\) and the LCM is the order of \((a, b)\).
+\item
+  Prove that any finite group \(G\) of even order contains an element of order
+  \(2\).
+  (Let \(t(G)\) be the set \(\{g\in G\mid g\neq g^{-1}\}\).
+  Show that \(t(G)\) has an even number of elements and every nonidentity
+  element of \(G - t(G)\) has order \(2\).)
+\item
+  If \(x\) is an element of finite order \(n\) in \(G\), prove that the
+  elements \(1,x,x^2,\ldots,x^{n - 1}\) are all distinct.
+  Deduce \(\lvert x\rvert\leq\lvert G\rvert\).
+  \par\smallskip
+  Let \(x\in G\) and \(0\leq m < r \leq n - 1\).
+  Suppose \(x^m = x^r\).
+  Then \(x^mx^{-r} = e\) or \(x^{m - r} = e\).
+  Since \(m,r\in\{0,1,\ldots,n - 1\}\) and \(m < r\), \(m - r < n\), thus
+  the order of \(\lvert x\rvert\neq n\) which is a contradicition.
+  No two elements are of the same order so they are distinct and \(G\) has at
+  least \(n\) elements.
+  Therefore, \(\lvert x\rvert\leq\lvert G\rvert\).
+\item
+  Let \(x\) be an element of finite order \(n\) in \(G\).
+  \begin{enumerate}[label = (\alph*)]
+  \item
+    Prove that if \(n\) is odd then \(x^i\neq x^{-i}\) for all
+    \(i = 1,2,\ldots, n - 1\).
+  \item
+    Prove that if \(n = 2k\) and \(1\leq i < n\) then \(x^i = x^{-i}\) if and
+    only if \(i = k\).
+  \end{enumerate}
+\item
+  If \(x\) is an element of infinite order in \(G\), prove that the elements
+  \(x^n\), \(n\in\mathbb{Z}\) are all distinct.
+  \par\smallskip
+\item
+  If \(x\) is an element of finite order \(n\) in \(G\), use the Division
+  Algorithm to show that any integral power of \(x\) equals one of the elements
+  in the set \(\{1,x,x^2,\ldots x^{n - 1}\}\) (so these are all the distinct
+  elements of the cyclic subgroup of \(G\) generated by \(x\)).
+\item
+  Assume \(G = \{1, a, b, c\}\) is a group of order \(4\) with identity \(1\).
+  Assume also that \(G\) has no elements of order \(4\) (so by exercise \(32\),
+  every element has order \(\leq 3\)).
+  Use the cancellation laws to show that there is a unique group table for
+  \(G\).
+  Deduce that \(G\) is abelian.
+\end{enumerate}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
