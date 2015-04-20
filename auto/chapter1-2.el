@@ -4,5 +4,9 @@
    (LaTeX-add-labels
     "ex3"
     "ex4"
-    "tetrahedron")))
+    "tetrahedron"
+    "18a"
+    "18b"
+    "18c"
+    "18d")))
 
